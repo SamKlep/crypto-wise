@@ -1,14 +1,16 @@
 import './App.css'
 import Header from './components/ui/Header'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import HomeScreen from './components/screens/HomeScreen'
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <div className='container mt-5 text-center'>
-        <h1>Ello m8!</h1>
-      </div>
-    </>
+      <Switch>
+        <Route path='/' component={HomeScreen} exact />
+      </Switch>
+    </Router>
   )
 }
 

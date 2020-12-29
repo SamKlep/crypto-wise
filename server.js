@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const axios = require('axios')
 const colors = require('colors')
+const dotenv = require('dotenv')
+
+// Load env vars
+dotenv.config()
 
 app.use(express.static('public'))
 
@@ -13,7 +17,10 @@ app.get('/', function (request, response) {
 
 app.get('/prices', function (request, response) {
   axios
-    .get('https://api.nomics.com/v1/prices?key=' + process.env.NOMICS_API_KEY)
+    .get(
+      `https://api.nomics.com/v1/currencies/ticker?key=${process.env.NOMICS_API_KEY}&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1`
+    )
+
     .then((resp) => {
       response.send(resp.data)
     })
