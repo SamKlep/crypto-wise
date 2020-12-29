@@ -1,5 +1,6 @@
-const React = require('react')
-const axios = require('axios')
+import React from 'react'
+import axios from 'axios'
+import { Table, Container, Row, Col } from 'react-bootstrap'
 
 class HomeApp extends React.Component {
   constructor(props) {
@@ -23,27 +24,33 @@ class HomeApp extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Cryptoasset Prices</h1>
-        <p>
-          This is a demo of the{' '}
-          <a href='https://docs.nomics.com'>Nomics Cryptoasset API</a>.
-        </p>
-        <table>
-          <thead>
-            <tr>
-              <th>Symbol</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.prices.map((p) => (
-              <tr key={p.currency}>
-                <td>{p.currency}</td>
-                <td>{p.price}</td>
+        <Container>
+          <Row>
+            <Col className='text-center m-5'>
+              <h1 className='display-4'>Top Performers</h1>
+              <p className='lead'>
+                Here are the top performing coins for today.
+              </p>
+            </Col>
+          </Row>
+
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Price</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {this.state.prices.map((p) => (
+                <tr key={p.currency}>
+                  <td>{p.currency}</td>
+                  <td>{p.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Container>
       </React.Fragment>
     )
   }

@@ -18,7 +18,21 @@ app.get('/', function (request, response) {
 app.get('/prices', function (request, response) {
   axios
     .get(
-      `https://api.nomics.com/v1/currencies/ticker?key=${process.env.NOMICS_API_KEY}&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1`
+      `https://api.nomics.com/v1/currencies/ticker?key=${process.env.NOMICS_API_KEY}&ids=BTC,LTC,ETH,XMR,BCH,FIL,MKR,COMP&interval=1h,30d&per-page=100&page=1`
+    )
+
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from nomics', err)
+    })
+})
+
+app.get('/news', function (request, response) {
+  axios
+    .get(
+      `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=${process.env.CRYPTOCOMPARE_API_KEY}`
     )
 
     .then((resp) => {

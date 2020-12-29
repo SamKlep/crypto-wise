@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Goldman&display=swap');
+
+* {
+  font-family: 'Goldman', cursive;
+}
 
 .logo {
   font-family: 'Audiowide', cursive;
