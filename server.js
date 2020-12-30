@@ -43,6 +43,20 @@ app.get('/news', function (request, response) {
     })
 })
 
+app.get('/stock', function (request, response) {
+  axios
+    .get(
+      `https://cloud.iexapis.com/stable/stock/aapl/quote?token=${process.env.STOCK_API_KEY}`
+    )
+
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from nomics', err)
+    })
+})
+
 const server = app.listen(
   PORT,
   console.log(

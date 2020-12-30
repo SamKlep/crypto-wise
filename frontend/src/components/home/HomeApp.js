@@ -44,7 +44,6 @@ const HomeApp = () => {
                 <th>Price</th>
                 <th>24HR High</th>
                 <th>24HR Low</th>
-                <th>Market Cap</th>
               </tr>
             </thead>
             {data.Data.map((p, id) => (

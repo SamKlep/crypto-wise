@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 const Header = () => {
   return (
@@ -24,14 +17,10 @@ const Header = () => {
               <NavDropdown.Item href='/cnews'>News</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title='Stocks' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='/sprice'>Prices</NavDropdown.Item>
-              <NavDropdown.Item href='/snews'>News</NavDropdown.Item>
+              <NavDropdown.Item href='/stock-prices'>Prices</NavDropdown.Item>
+              <NavDropdown.Item href='/stock-news'>News</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline>
-            <FormControl type='text' placeholder='Search' className='mr-sm-2' />
-            <Button variant='outline-success'>Search</Button>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
