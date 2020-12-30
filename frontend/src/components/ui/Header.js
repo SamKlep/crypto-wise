@@ -13,8 +13,8 @@ const Header = () => {
           <Nav className='ml-auto'>
             <Nav.Link href='/'>Home</Nav.Link>
             <NavDropdown title='Crypto' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='/cprice'>Prices</NavDropdown.Item>
-              <NavDropdown.Item href='/cnews'>News</NavDropdown.Item>
+              <NavDropdown.Item href='/prices'>Prices</NavDropdown.Item>
+              <NavDropdown.Item href='/news'>News</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title='Stocks' id='basic-nav-dropdown'>
               <NavDropdown.Item href='/stock-prices'>Prices</NavDropdown.Item>

@@ -28,7 +28,7 @@ const NewsApp = () => {
   return (
     <div className='container mt-3 text-center'>
       <Jumbotron fluid>
-        <h1 className='text-info'>News</h1>
+        <h1 className='text-info'>Crypto News</h1>
       </Jumbotron>
 
       <Row>

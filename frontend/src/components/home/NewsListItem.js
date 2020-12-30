@@ -17,7 +17,7 @@ const NewsListItem = ({ n }) => {
             </strong>
             <p> {n.body}</p>
             <a href={n.url} target='_blank' without rel='noreferrer'>
-              <Button className='btn-info'>Read More</Button>
+              <Button className='btn-success'>Read More</Button>
             </a>
           </div>
         </Col>
