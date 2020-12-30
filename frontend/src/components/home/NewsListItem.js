@@ -1,29 +1,27 @@
 import React from 'react'
-import { Card, Container } from 'react-bootstrap'
+import { Card, Container, Row, Col, Image, Button } from 'react-bootstrap'
 
 const NewsListItem = ({ n }) => {
   return (
     <Container className='justify-content-md-center'>
-      <Card className=' mb-5' style={{ width: '24em' }}>
-        <a href={n.url} target='_blank' without rel='noreferrer'>
-          <Card.Img
-            className='card-img-top'
-            src={n.imageurl}
-            alt='news'
-            fluid
-          />
-        </a>
-        <Card.Body>
+      <Row className='m-5'>
+        <Col lg={4}>
           <a href={n.url} target='_blank' without rel='noreferrer'>
-            <Card.Title as='div'>
-              <strong>
-                <h4>{n.title}</h4>
-              </strong>
-            </Card.Title>
+            <Image src={n.imageurl} alt='news' fluid />
           </a>
-          {n.body}
-        </Card.Body>
-      </Card>
+        </Col>
+        <Col>
+          <div className='container'>
+            <strong>
+              <h4>{n.title}</h4>
+            </strong>
+            <p> {n.body}</p>
+            <a href={n.url} target='_blank' without rel='noreferrer'>
+              <Button className='btn-info'>Read More</Button>
+            </a>
+          </div>
+        </Col>
+      </Row>
     </Container>
   )
 }

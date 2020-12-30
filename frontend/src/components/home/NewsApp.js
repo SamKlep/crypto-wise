@@ -34,7 +34,7 @@ const NewsApp = () => {
       <Row>
         <br />
         <Col>
-          <section className='cards'>
+          <section>
             {data.Data.map((n, id) => (
               <NewsListItem key={id} n={n} />
             ))}
