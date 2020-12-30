@@ -1,59 +1,60 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Table, Container, Row, Col } from 'react-bootstrap'
+import { Row, Col, Table } from 'react-bootstrap'
+import PriceListItem from './PriceListItem'
 
-class HomeApp extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      prices: [],
-    }
-  }
+const HomeApp = () => {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState([])
 
-  componentDidMount() {
+  useEffect(() => {
+    setLoading(true)
     axios
-      .get('/prices')
+      .get(`/prices`)
       .then((response) => {
-        this.setState({ prices: response.data })
+        setData(response.data)
+        // console.log(response.data)
+        setLoading(false)
       })
       .catch((err) => {
-        console.log('Error fetching data from server', err)
+        console.log(err)
       })
+  }, [])
+
+  if (loading) {
+    return <p>Loading prices...</p>
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <Container>
-          <Row>
-            <Col className='text-center m-5'>
-              <h1 className='display-4'>Top Performers</h1>
-              <p className='lead'>
-                Here are the top performing coins for today.
-              </p>
-            </Col>
-          </Row>
-
+  return (
+    <div className='container mt-3'>
+      <Row>
+        <Col className='text-center m-5'>
+          <h1 className='display-4'>Top Performers</h1>
+          <p className='lead'>Here are the top performing coins for today.</p>
+        </Col>
+      </Row>
+      <Row>
+        <br />
+        <Col>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Symbol</th>
+                <th>Name</th>
                 <th>Price</th>
+                <th>24HR High</th>
+                <th>24HR Low</th>
+                <th>Market Cap</th>
               </tr>
             </thead>
-            <tbody>
-              {this.state.prices.map((p) => (
-                <tr key={p.currency}>
-                  <td>{p.currency}</td>
-                  <td>$ {parseFloat(p.price).toFixed(2)}</td>
-                </tr>
-              ))}
-            </tbody>
+            {data.Data.map((p, id) => (
+              <PriceListItem key={id} p={p} />
+            ))}
           </Table>
-        </Container>
-      </React.Fragment>
-    )
-  }
+        </Col>
+      </Row>
+    </div>
+  )
 }
 
 export default HomeApp

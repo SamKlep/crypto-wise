@@ -18,7 +18,7 @@ app.get('/', function (request, response) {
 app.get('/prices', function (request, response) {
   axios
     .get(
-      `https://api.nomics.com/v1/currencies/ticker?key=${process.env.NOMICS_API_KEY}&ids=BTC,LTC,ETH,XMR,BCH,FIL,MKR,COMP&interval=1h,30d&per-page=100&page=1`
+      `https://min-api.cryptocompare.com/data/top/totalvolfull?tsym=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
     )
 
     .then((resp) => {
