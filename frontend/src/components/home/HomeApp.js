@@ -45,7 +45,7 @@ class HomeApp extends React.Component {
               {this.state.prices.map((p) => (
                 <tr key={p.currency}>
                   <td>{p.currency}</td>
-                  <td>{p.price}</td>
+                  <td>$ {parseFloat(p.price).toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>
