@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Table } from 'react-bootstrap'
 import axios from 'axios'
+import StockListItem from './StockListItem'
 
 const StockApp = () => {
   const [data, setData] = useState([])
@@ -35,26 +36,15 @@ const StockApp = () => {
         <thead>
           <tr>
             <th>Symbol</th>
-            <th>Name</th>
-            <th>Exchange</th>
+            <th>Sector</th>
+
             <th>Price</th>
-            <th>% Change</th>
+            <th>Volume</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{data.symbol}</td>
-            <td>{data.companyName}</td>
-            <td>{data.primaryExchange}</td>
-            <td>$ {data.latestPrice}</td>
-            <td>{data.change}%</td>
-
-            {/* <td>
-            ${' '}
-            {p.RAW.USD.MKTCAP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-          </td> */}
-          </tr>
-        </tbody>
+        {data.map((p) => (
+          <StockListItem p={p} />
+        ))}
       </Table>
     </div>
   )
