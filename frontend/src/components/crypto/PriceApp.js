@@ -37,7 +37,7 @@ const PriceApp = () => {
             <FormControl
               type='text'
               placeholder='Search'
-              className='m-5'
+              className='search mx-auto m-5'
               onChange={handleChange}
             />
           </Form>
