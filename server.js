@@ -25,7 +25,21 @@ app.get('/prices', function (request, response) {
       response.send(resp.data)
     })
     .catch((err) => {
-      console.log('Error fetching data from nomics', err)
+      console.log('Error fetching data from CryptoCompare', err)
+    })
+})
+
+app.get('/price', function (request, response) {
+  axios
+    .get(
+      `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
+    )
+
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from CryptoCompare', err)
     })
 })
 
@@ -39,7 +53,7 @@ app.get('/news', function (request, response) {
       response.send(resp.data)
     })
     .catch((err) => {
-      console.log('Error fetching data from nomics', err)
+      console.log('Error fetching data from CryptoCompare', err)
     })
 })
 
@@ -53,7 +67,7 @@ app.get('/stock', function (request, response) {
       response.send(resp.data)
     })
     .catch((err) => {
-      console.log('Error fetching data from nomics', err)
+      console.log('Error fetching data from IEX', err)
     })
 })
 
