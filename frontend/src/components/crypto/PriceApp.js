@@ -1,66 +1,67 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Row, Col, Card, Form, FormControl, Button } from 'react-bootstrap'
+import { Container, Row, Col, Form, FormControl } from 'react-bootstrap'
+import Coin from './Coin'
 
 const PriceApp = () => {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState([])
+  const [coins, setCoins] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
-    setLoading(true)
     axios
-      .get(`/price`)
-      .then((response) => {
-        setData(response.data)
-        console.log(response.data)
-        setLoading(false)
+      .get(
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+      )
+      .then((res) => {
+        setCoins(res.data)
       })
-      .catch((err) => {
-        console.log(err)
+      .catch((error) => {
+        console.log(error)
       })
   }, [])
 
-  if (loading) {
-    return <p>Loading prices...</p>
+  const handleChange = (e) => {
+    setSearch(e.target.value)
   }
 
+  const filteredCoins = coins.filter((coin) => {
+    return coin.name.toLowerCase().includes(search.toLocaleLowerCase())
+  })
+
   return (
-    <div className='container mt-3'>
+    <Container className='mt-5'>
       <Row>
-        <Col className='text-center m-5'>
-          <h1 className='display-4'>Price Check</h1>
-          <p className='lead'>Enter the name of a coin in question.</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col className='text-center m-5'>
-          <Form className='mb-3'>
+        <Col className='justify-content-lg-center'>
+          <h1 className='text-center'>Search a currency</h1>
+          <Form>
             <FormControl
-              className='mb-3'
               type='text'
-              placeholder='Search Assets'
+              placeholder='Search'
+              className='m-5'
+              onChange={handleChange}
             />
-            <Button variant='outline-success btn-lg btn-block'>Search</Button>
           </Form>
         </Col>
       </Row>
       <Row>
-        <br />
         <Col>
-          <Card>
-            <Card.Body>
-              <p className='display-4 text-center'>
-                $
-                {parseFloat(data.USD)
-                  .toFixed(2)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-              </p>
-            </Card.Body>
-          </Card>
+          {filteredCoins.map((coin) => {
+            return (
+              <Coin
+                key={coin.id}
+                name={coin.name}
+                price={coin.current_price}
+                symbol={coin.symbol}
+                image={coin.image}
+                marketcap={coin.market_cap}
+                priceChange={coin.price_change_percentage_24h}
+                volume={coin.total_volume}
+              />
+            )
+          })}
         </Col>
       </Row>
-    </div>
+    </Container>
   )
 }
 

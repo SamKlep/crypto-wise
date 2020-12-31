@@ -29,10 +29,10 @@ app.get('/prices', function (request, response) {
     })
 })
 
-app.get('/price', function (request, response) {
+app.get('/price', function (request, response, coin) {
   axios
     .get(
-      `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
+      `https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
     )
 
     .then((resp) => {
