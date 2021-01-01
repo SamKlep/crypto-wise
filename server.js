@@ -60,7 +60,7 @@ app.get('/news', function (request, response) {
 app.get('/stocks', function (request, response) {
   axios
     .get(
-      `https://cloud.iexapis.com/stable/stock/market/list/gainers?token=${process.env.STOCK_API_KEY}`
+      `https://cloud.iexapis.com/stable/stock/market/collection/sector?collectionName=Technology&token=${process.env.STOCK_API_KEY}`
     )
 
     .then((resp) => {

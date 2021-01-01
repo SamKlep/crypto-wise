@@ -62,9 +62,13 @@ const StockApp = () => {
               <tr>
                 <th>Symbol</th>
                 <th>Name</th>
+                <th>Exchange</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Latest Price</th>
                 <th>Change</th>
-                <th>Open Price</th>
-                <th>Close Price</th>
+                <th>Yr High</th>
+                <th>Yr Low</th>
                 <th>Mkt Cap</th>
               </tr>
             </thead>
