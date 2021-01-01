@@ -5,6 +5,7 @@ import HomeScreen from './components/screens/HomeScreen'
 import StockScreen from './components/screens/StockScreen'
 import NewsScreen from './components/screens/NewsScreen'
 import CryptoPriceScreen from './components/screens/CryptoPriceScreen'
+import Footer from './components/ui/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/prices' component={CryptoPriceScreen} exact />
         <Route path='/stock-prices' component={StockScreen} exact />
       </Switch>
+      <Footer />
     </Router>
   )
 }

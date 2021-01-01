@@ -30,7 +30,6 @@ const HomeApp = () => {
       <Row>
         <Col className='text-center m-5'>
           <h1 className='display-4'>Top Performers</h1>
-          <p className='lead'>Here are the top performing coins for today.</p>
         </Col>
       </Row>
       <Row>
