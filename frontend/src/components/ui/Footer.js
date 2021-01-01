@@ -20,16 +20,16 @@ const Footer = () => {
           © - 2021
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/prices'>Crypto - Prices</Nav.Link>
+          <Nav.Link href='/prices'>Crypto / Prices</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/news'>Crypto - News</Nav.Link>
+          <Nav.Link href='/news'>Crypto / News</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/stock-prices'>Stock - Prices</Nav.Link>
+          <Nav.Link href='/stock-prices'>Stock / Prices</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/stock-news'>Stock - News</Nav.Link>
+          <Nav.Link href='/stock/news'>Stock / News</Nav.Link>
         </Nav.Item>
       </Nav>
     </>

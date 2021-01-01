@@ -57,10 +57,10 @@ app.get('/news', function (request, response) {
     })
 })
 
-app.get('/stock', function (request, response) {
+app.get('/stocks', function (request, response) {
   axios
     .get(
-      `https://cloud.iexapis.com/stable/tops?token=${process.env.STOCK_API_KEY}&symbols=aapl,msft,amzn,goog,fb,nflx,tsla`
+      `https://cloud.iexapis.com/stable/stock/market/list/gainers?token=${process.env.STOCK_API_KEY}`
     )
 
     .then((resp) => {

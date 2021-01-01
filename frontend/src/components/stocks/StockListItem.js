@@ -6,9 +6,11 @@ const StockListItem = ({ p }) => {
       <tbody>
         <tr>
           <td>{p.symbol}</td>
-          <td>{p.sector}</td>
-          <td>$ {p.lastSalePrice}</td>
-          <td>{p.volume}</td>
+          <td>{p.companyName}</td>
+          <td>{p.changePercent} %</td>
+          <td>$ {p.iexClose}</td>
+          <td>$ {p.iexClose}</td>
+          <td>$ {p.marketCap}</td>
         </tr>
       </tbody>
     </>

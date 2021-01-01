@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Container, Row, Col, Form, FormControl } from 'react-bootstrap'
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FormControl,
+  Jumbotron,
+} from 'react-bootstrap'
 import Coin from './Coin'
 
 const PriceApp = () => {
@@ -29,10 +36,12 @@ const PriceApp = () => {
   })
 
   return (
-    <Container className='mt-5'>
+    <Container className='mt-3'>
       <Row>
         <Col className='justify-content-lg-center'>
-          <h1 className='text-center'>Search a currency</h1>
+          <Jumbotron fluid>
+            <h1 className='text-info text-center'>Search a Currency</h1>
+          </Jumbotron>
           <Form>
             <FormControl
               type='text'

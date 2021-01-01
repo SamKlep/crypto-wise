@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 
 const Header = () => {
   return (
@@ -11,15 +11,8 @@ const Header = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
-            <Nav.Link href='/'>Home</Nav.Link>
-            <NavDropdown title='Crypto' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='/prices'>Prices</NavDropdown.Item>
-              <NavDropdown.Item href='/news'>News</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title='Stocks' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='/stock-prices'>Prices</NavDropdown.Item>
-              <NavDropdown.Item href='/stock-news'>News</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href='/news'>News</Nav.Link>
+            <Nav.Link href='/stock'>Stocks</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

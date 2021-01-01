@@ -15,7 +15,7 @@ function App() {
         <Route path='/' component={HomeScreen} exact />
         <Route path='/news' component={NewsScreen} exact />
         <Route path='/prices' component={CryptoPriceScreen} exact />
-        <Route path='/stock-prices' component={StockScreen} exact />
+        <Route path='/stock' component={StockScreen} exact />
       </Switch>
       <Footer />
     </Router>

@@ -1,10 +1,10 @@
 import React from 'react'
-import HomeApp from '../home/HomeApp'
+import PriceApp from '../crypto/PriceApp'
 
 const HomeScreen = () => {
   return (
     <div>
-      <HomeApp />
+      <PriceApp />
     </div>
   )
 }
