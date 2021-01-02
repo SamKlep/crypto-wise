@@ -1,1 +1,1 @@
-web: npm run build-client && node public/index.bundle.js
+web: npm run heroku-postbuild && node public/index.bundle.js
