@@ -21,10 +21,6 @@ if (process.env.NODE_ENV === 'production') {
   console.log('Serving React App...')
 }
 
-app.get('/', function (request, response) {
-  response.send('hello')
-})
-
 app.get('/prices', function (request, response) {
   axios
     .get(
