@@ -7,10 +7,6 @@ const dotenv = require('dotenv')
 // Load env vars
 dotenv.config()
 
-app.use(express.static('public'))
-
-const PORT = process.env.PORT || 5000
-
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build')) // serve the static react app
@@ -76,6 +72,10 @@ app.get('/stocks', function (request, response) {
       console.log('Error fetching data from IEX', err)
     })
 })
+
+app.use(express.static('public'))
+
+const PORT = process.env.PORT || 5000
 
 const server = app.listen(
   PORT,
