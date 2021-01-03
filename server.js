@@ -9,70 +9,75 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 // Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build')) // serve the static react app
-  app.get(/^\/(?!api).*/, (req, res) => {
-    // don't serve api routes to react app
-    res.sendFile(path.join(__dirname, './frontend/build/index.html'))
-  })
-  console.log('Serving React App...')
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('frontend/build')) // serve the static react app
+//   app.get(/^\/(?!api).*/, (req, res) => {
+//     // don't serve api routes to react app
+//     res.sendFile(path.join(__dirname, './frontend/build/index.html'))
+//   })
+//   console.log('Serving React App...')
+// }
+app.use(express.static(path.join(__dirname, 'frontend/build')))
 
-// app.get('/prices', function (request, response) {
-//   axios
-//     .get(
-//       `https://min-api.cryptocompare.com/data/top/totalvolfull?tsym=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
-//     )
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/frontend/build', 'index.html'))
+})
 
-//     .then((resp) => {
-//       response.send(resp.data)
-//     })
-//     .catch((err) => {
-//       console.log('Error fetching data from CryptoCompare', err)
-//     })
-// })
+app.get('/prices', function (request, response) {
+  axios
+    .get(
+      `https://min-api.cryptocompare.com/data/top/totalvolfull?tsym=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
+    )
 
-// app.get('/price', function (request, response) {
-//   axios
-//     .get(
-//       `https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
-//     )
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from CryptoCompare', err)
+    })
+})
 
-//     .then((resp) => {
-//       response.send(resp.data)
-//     })
-//     .catch((err) => {
-//       console.log('Error fetching data from CryptoCompare', err)
-//     })
-// })
+app.get('/price', function (request, response) {
+  axios
+    .get(
+      `https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
+    )
 
-// app.get('/news', function (request, response) {
-//   axios
-//     .get(
-//       `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=${process.env.CRYPTOCOMPARE_API_KEY}`
-//     )
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from CryptoCompare', err)
+    })
+})
 
-//     .then((resp) => {
-//       response.send(resp.data)
-//     })
-//     .catch((err) => {
-//       console.log('Error fetching data from CryptoCompare', err)
-//     })
-// })
+app.get('/news', function (request, response) {
+  axios
+    .get(
+      `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=${process.env.CRYPTOCOMPARE_API_KEY}`
+    )
 
-// app.get('/stocks', function (request, response) {
-//   axios
-//     .get(
-//       `https://cloud.iexapis.com/stable/stock/market/collection/sector?collectionName=Technology&token=${process.env.STOCK_API_KEY}`
-//     )
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from CryptoCompare', err)
+    })
+})
 
-//     .then((resp) => {
-//       response.send(resp.data)
-//     })
-//     .catch((err) => {
-//       console.log('Error fetching data from IEX', err)
-//     })
-// })
+app.get('/stocks', function (request, response) {
+  axios
+    .get(
+      `https://cloud.iexapis.com/stable/stock/market/collection/sector?collectionName=Technology&token=${process.env.STOCK_API_KEY}`
+    )
+
+    .then((resp) => {
+      response.send(resp.data)
+    })
+    .catch((err) => {
+      console.log('Error fetching data from IEX', err)
+    })
+})
 
 app.use(express.static('public'))
 
