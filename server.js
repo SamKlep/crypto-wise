@@ -18,47 +18,47 @@ if (process.env.NODE_ENV === 'production') {
   console.log('Serving React App...')
 }
 
-app.get('/prices', function (request, response) {
-  axios
-    .get(
-      `https://min-api.cryptocompare.com/data/top/totalvolfull?tsym=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
-    )
+// app.get('/prices', function (request, response) {
+//   axios
+//     .get(
+//       `https://min-api.cryptocompare.com/data/top/totalvolfull?tsym=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
+//     )
 
-    .then((resp) => {
-      response.send(resp.data)
-    })
-    .catch((err) => {
-      console.log('Error fetching data from CryptoCompare', err)
-    })
-})
+//     .then((resp) => {
+//       response.send(resp.data)
+//     })
+//     .catch((err) => {
+//       console.log('Error fetching data from CryptoCompare', err)
+//     })
+// })
 
-app.get('/price', function (request, response) {
-  axios
-    .get(
-      `https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
-    )
+// app.get('/price', function (request, response) {
+//   axios
+//     .get(
+//       `https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD&${process.env.CRYPTOCOMPARE_API_KEY}`
+//     )
 
-    .then((resp) => {
-      response.send(resp.data)
-    })
-    .catch((err) => {
-      console.log('Error fetching data from CryptoCompare', err)
-    })
-})
+//     .then((resp) => {
+//       response.send(resp.data)
+//     })
+//     .catch((err) => {
+//       console.log('Error fetching data from CryptoCompare', err)
+//     })
+// })
 
-app.get('/news', function (request, response) {
-  axios
-    .get(
-      `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=${process.env.CRYPTOCOMPARE_API_KEY}`
-    )
+// app.get('/news', function (request, response) {
+//   axios
+//     .get(
+//       `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=${process.env.CRYPTOCOMPARE_API_KEY}`
+//     )
 
-    .then((resp) => {
-      response.send(resp.data)
-    })
-    .catch((err) => {
-      console.log('Error fetching data from CryptoCompare', err)
-    })
-})
+//     .then((resp) => {
+//       response.send(resp.data)
+//     })
+//     .catch((err) => {
+//       console.log('Error fetching data from CryptoCompare', err)
+//     })
+// })
 
 // app.get('/stocks', function (request, response) {
 //   axios
