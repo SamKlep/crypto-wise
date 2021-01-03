@@ -60,19 +60,19 @@ app.get('/news', function (request, response) {
     })
 })
 
-app.get('/stocks', function (request, response) {
-  axios
-    .get(
-      `https://cloud.iexapis.com/stable/stock/market/collection/sector?collectionName=Technology&token=${process.env.STOCK_API_KEY}`
-    )
+// app.get('/stocks', function (request, response) {
+//   axios
+//     .get(
+//       `https://cloud.iexapis.com/stable/stock/market/collection/sector?collectionName=Technology&token=${process.env.STOCK_API_KEY}`
+//     )
 
-    .then((resp) => {
-      response.send(resp.data)
-    })
-    .catch((err) => {
-      console.log('Error fetching data from IEX', err)
-    })
-})
+//     .then((resp) => {
+//       response.send(resp.data)
+//     })
+//     .catch((err) => {
+//       console.log('Error fetching data from IEX', err)
+//     })
+// })
 
 app.use(express.static('public'))
 
